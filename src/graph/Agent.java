@@ -28,4 +28,7 @@ public class Agent {
     public void addNeighbour(Agent neighbour){
         neighbours.add(neighbour);
     }
+    public int getNodeDegree(){
+        return neighbours.size();
+    }
 }
