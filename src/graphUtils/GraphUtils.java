@@ -8,22 +8,19 @@ public class GraphUtils {
 
     public static Map<Agent, List<Agent>> generateErdosRenyi(int nrOfNodes, double probablityOfLink){
         Map<Agent, List<Agent>> graph = new HashMap<>();
-        try {
-            List<Agent> agents = GraphUtils.emptyAgents(nrOfNodes);
+        List<Agent> agents = GraphUtils.emptyAgents(nrOfNodes);
 
-            for (int i = 0; i < nrOfNodes; i++) {
-                Agent current = new Agent();
-                long currentId = agents.get(i).getId();
+        for (int i = 0; i < nrOfNodes; i++) {
+            Agent current = new Agent();
+            long currentId = agents.get(i).getId();
 
-                agents.forEach(e -> {
-                    if (Math.random() < probablityOfLink && e.getId() != currentId)
-                        current.addNeighbour(e);
-                });
-                graph.put(agents.get(i), current.getNeighbours());
-            }
-        } catch (Exception e) {
-        e.printStackTrace();
+            agents.forEach(e -> {
+                if (Math.random() < probablityOfLink && e.getId() != currentId)
+                    current.addNeighbour(e);
+            });
+            graph.put(agents.get(i), current.getNeighbours());
         }
+
         return graph;
     }
 
