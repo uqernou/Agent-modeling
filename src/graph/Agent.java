@@ -3,10 +3,8 @@ package graph;
 import enums.StanE;
 import lombok.AllArgsConstructor;
 import lombok.Data;
-import lombok.NoArgsConstructor;
 
 import java.util.ArrayList;
-import java.util.Collections;
 import java.util.List;
 
 @Data
@@ -15,6 +13,9 @@ public class Agent {
     private long id;
     private StanE stan = StanE.S;
     private List<Agent> neighbours = new ArrayList<>();
+    boolean czyZmianaWStiflera = false;
+    boolean czyZmianaWSpreadera = false;
+    boolean czyZmianaWIgnoranta = false;
 
     public Agent(){
 
